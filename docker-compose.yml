@@ -1,0 +1,33 @@
+version: "3.7"
+
+services:
+
+    postgres:
+        restart: unless-stopped
+        image: "postgres"
+        environment:
+            - POSTGRES_USER=admin
+            - POSTGRES_PASSWORD=password
+            - POSTGRES_DB=postgresdb
+        ports: 
+            - "5432:5432"
+        volumes:
+            - database-data:/var/lib/postgresql/data/
+
+    mongo:
+        image: mongo
+        container_name: mongo
+        hostname: mongo
+        restart: unless-stopped
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=user
+            - MONGO_INITDB_ROOT_PASSWORD=pass
+        ports:
+            - 27017:27017
+        volumes:
+            - mongo-data:/var/lib/mongo/data/
+        
+volumes:
+    database-data:
+    mongo-data:    
+
