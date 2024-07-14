@@ -8,7 +8,7 @@ on:
     branches: [ "main" ]
     
 env:
-  IMAGE_NAME_API: api
+  IMAGE_NAME_API: promotions_api
   
 jobs:
 
